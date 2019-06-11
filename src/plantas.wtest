@@ -2,6 +2,8 @@ import plantas.*
 
 describe "Test de plantas"{
 	
+// cada especie que se agrega hay que inicializar sus atributos 
+	
 	const menta1 = new Menta(anioDeObtencion = new Date(), altura = 1)	
 	const menta2 = new Menta(anioDeObtencion = new Date(), altura = 0.3)	
 	
@@ -41,7 +43,7 @@ describe "Test de plantas"{
 		assert.equals(0.3,soja1.espacioQueOcupa())
 	}
 	
-		test "Una planta de soja de 1.2m y del 2008 tolera 9hs al sol"{
+	test "Una planta de soja de 1.2m y del 2008 tolera 9hs al sol"{
 		assert.equals(9,soja2.horasDeSolToleradas())
 	}
 	

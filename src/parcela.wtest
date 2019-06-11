@@ -3,14 +3,7 @@ import parcelas.*
 
 describe "Test de parcelas"{
 	
-	const menta1 = new Menta(anioDeObtencion = new Date(), altura = 1)	
-	const menta2 = new Menta(anioDeObtencion = new Date(), altura = 0.3)	
-	const soja1 = new Soja (anioDeObtencion = new Date(12,05,2009), altura = 0.6)
 	const soja2 = new Soja (anioDeObtencion = new Date(21,07,2008), altura = 1.2)
-	const quinoa1 = new Quinoa (anioDeObtencion = new Date(3,3,2010), horasDeTolerancia = 12)
-	const quinoa2 = new Quinoa (anioDeObtencion = new Date(14,8,2001), altura = 0.3, horasDeTolerancia = 9)
-	const sojaTrasgenica = new SojaTransgenica(anioDeObtencion = new Date(5,2,20012), altura = 0.8)
-	const hierbabuena = new HierbaBuena(anioDeObtencion = new Date(), altura = 0.3)
 	
 	const parcela1 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 8, plantas = [soja2,soja2,soja2,soja2])
 	const parcela2 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 10, plantas = [soja2,soja2,soja2])

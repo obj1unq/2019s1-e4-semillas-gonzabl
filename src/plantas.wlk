@@ -22,13 +22,15 @@ class Menta inherits Planta{
 	override method condicionEspecial() = altura > 0.4
 	
 	override method espacioQueOcupa() = altura * 3
+	
+	method parcelaIdeal(parcela)= parcela.superficie() > 6 
 }
 
 class Soja inherits Planta{
 	
 	const anioDeObtencion
 	
-	var altura
+	var property altura
 	
 	override method horasDeSolToleradas()=
 		 if (altura < 0.5){ 6 }
@@ -41,6 +43,7 @@ class Soja inherits Planta{
 	
 	override method espacioQueOcupa() = altura / 2
 	
+	method parcelaIdeal(parcela)= self.horasDeSolToleradas() == parcela.hsDeSolRecibidas()
 }
 
 
@@ -58,11 +61,15 @@ class Quinoa inherits Planta {
 	
 	override method espacioQueOcupa() = 0.5
 	
+	method parcelaIdeal(parcela)= parcela.plantas().all({planta => planta.altura() < 1.5})
+	
 }
 
 class SojaTransgenica inherits Soja{
 	
 	override method daNuevasSemillas() = false
+	
+	override method parcelaIdeal(parcela)= parcela.cantidadMaximaDePlantas() == 1
 }
 
 class HierbaBuena inherits Menta{

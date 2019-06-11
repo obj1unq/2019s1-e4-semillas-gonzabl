@@ -2,7 +2,7 @@ class Parcela{
 	
 	const ancho
 	const largo
-	const hsDeSolRecibidas
+	const property hsDeSolRecibidas
 	const property plantas = []
 	
 	method superficie() = ancho * largo
