@@ -2,34 +2,62 @@ import plantas.*
 
 describe "Test de plantas"{
 	
-	const menta1 = new Menta(anioDeObtencion = new Date(6,3,2006), altura = 1)	
-	const menta2 = new Menta(anioDeObtencion = new Date(12,5,2008), altura = 0.3)	
-	//const menta3 = new Menta(anioDeObtencion = new Date(10,4,2005), altura = 0.7)	
+	const menta1 = new Menta(anioDeObtencion = new Date(), altura = 1)	
+	const menta2 = new Menta(anioDeObtencion = new Date(), altura = 0.3)	
+	
+	const soja1 = new Soja (anioDeObtencion = new Date(12,05,2009), altura = 0.6)
+	const soja2 = new Soja (anioDeObtencion = new Date(21,07,2008), altura = 1.2)
+	
+	const quinoa1 = new Quinoa (anioDeObtencion = new Date(3,3,2010), horasDeTolerancia = 12)
+	const quinoa2 = new Quinoa (anioDeObtencion = new Date(14,8,2001), altura = 0.3, horasDeTolerancia = 9)
 	
 	
-	
-	test "Una menta de 1 metro da semillas" {
-
-		assert.that(menta1.daSemillas())
+	test "Una planta de  menta de 1 metro da semillas" {
+		assert.that(menta1.daNuevasSemillas())
 	}	
 
-
-	test "Una menta de 1 metro ocupa 3 metros cuadrados" {
-
+	test "Una planta de  menta de 1 metro ocupa 3 metros cuadrados" {
 		assert.equals(3,menta1.espacioQueOcupa())
 	}	
-
-	test "Una menta de 0.3 metros NO da semillas" {
-
-		assert.notThat(menta2.daSemillas())
+	test "Una planta de menta de 0.3 metros NO da semillas" {
+		assert.notThat(menta2.daNuevasSemillas())
 	}	
 	
-	
-	test "Una menta de 0.3 metres ocupa 0.9 metros cuadrados" {
-
+	test "Una planta de menta de 0.3 metros ocupa 0.9 metros cuadrados" {
 		assert.equals(0.9,menta2.espacioQueOcupa())
 	}	
 
-
+	test "Una planta de soja de 0.6m y del 2009 tolera 7hs al sol"{
+		assert.equals(7,soja1.horasDeSolToleradas())
+	}
+	
+	test "Una planta de soja de 0.6m y del 2009 No da semillas"{
+		assert.notThat(soja1.daNuevasSemillas())
+	}
+	
+	test "Una planta de soja de 0.6m y del 2009 ocupa 0.3 metros cuadrados"{
+		assert.equals(0.3,soja1.espacioQueOcupa())
+	}
+	
+		test "Una planta de soja de 1.2m y del 2008 tolera 9hs al sol"{
+		assert.equals(9,soja2.horasDeSolToleradas())
+	}
+	
+	test "Una planta de soja de 1.2m y del 2008 da semillas"{
+		assert.that(soja2.daNuevasSemillas())
+	}
+	
+	test "Una planta de soja de 1.2m y del 2008 ocupa  metros cuadrados"{
+		assert.equals(0.6,soja2.espacioQueOcupa())
+	}
+	
+	test "Quinoa que tolera 12 hs de sol y su semillas es de 2010 da semillas"{
+		assert.that(quinoa1.daNuevasSemillas())
+	}
+	
+	test "Quinoa que tolera 9 hs de sol y su semillas es de 2001 da semillas"{
+		assert.that(quinoa2.daNuevasSemillas())
+	}
+	
 }
 

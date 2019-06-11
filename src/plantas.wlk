@@ -48,15 +48,10 @@ class Quinoa inherits Planta {
 	
 	const anioDeObtencion
 	
-	var altura
+	var altura = 0.6
 	
 	var horasDeTolerancia
-	
-	method asignarHorasDeTolerancia(_horasDeTolerancia){
-		horasDeTolerancia = _horasDeTolerancia 
-	} 
-	 
-	
+	 	
 	override method horasDeSolToleradas() = horasDeTolerancia 
 	
 	override method condicionEspecial() = anioDeObtencion.year() < 2005 
