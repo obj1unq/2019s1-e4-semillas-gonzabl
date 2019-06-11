@@ -15,7 +15,7 @@ class Planta {
 class Menta inherits Planta{
 	const anioDeObtencion
 	
-	var altura
+	var property altura
 	
 	override method horasDeSolToleradas() = 6
 	
@@ -51,7 +51,7 @@ class Quinoa inherits Planta {
 	
 	const anioDeObtencion
 	
-	var altura = 0.6
+	var property altura = 0.6
 	
 	var horasDeTolerancia
 	 	

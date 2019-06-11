@@ -1,0 +1,52 @@
+import plantas.*
+import parcelas.*
+
+describe "test de plantas para saber si una parcela es ideal"{
+	
+	const menta1 = new Menta(anioDeObtencion = new Date(), altura = 1.6)	
+	
+	const soja1 = new Soja (anioDeObtencion = new Date(12,05,2009), altura = 0.6)
+	const soja2 = new Soja (anioDeObtencion = new Date(21,07,2008), altura = 1.2)
+	
+	const quinoa = new Quinoa (anioDeObtencion = new Date(3,3,2010), horasDeTolerancia = 12)
+	
+	const sojaTrasgenica = new SojaTransgenica(anioDeObtencion = new Date(5,2,20012), altura = 0.8)
+	
+	
+	const parcela1 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 7, plantas = [menta1,menta1])
+	const parcela2 = new Parcela(ancho = 5, largo = 1, hsDeSolRecibidas = 10, plantas = [])
+	
+	
+	test "Para la menta1 la parcela 1 es ideal"{
+		assert.that(menta1.parcelaIdeal(parcela1))
+	}
+	
+	test "Para la menta1 la parcela 2 NO es ideal"{
+		assert.notThat(menta1.parcelaIdeal(parcela2))
+	}
+	
+	test "Para la soja1 la parcela 1 es ideal"{
+		assert.that(soja1.parcelaIdeal(parcela1))
+	}
+	
+	test "Para la soja2 la parcela 2 NO es ideal"{
+		assert.notThat(soja2.parcelaIdeal(parcela2))
+	}
+	
+	test "Para la sojatrangenica la parcela 1 No es ideal"{
+		assert.notThat(sojaTrasgenica.parcelaIdeal(parcela1))
+	}
+	
+	test "Para la sojatrangenica la parcela 2 es ideal"{
+		assert.that(sojaTrasgenica.parcelaIdeal(parcela2))
+	}
+	
+	test "Para la quinoa la parcela 1 NO es ideal"{
+		assert.notThat(quinoa.parcelaIdeal(parcela1))
+	}
+	
+	test "Para la quinoa la parcela 2 es ideal"{
+		assert.that(quinoa.parcelaIdeal(parcela2))
+	}
+	
+}
