@@ -1,0 +1,35 @@
+import plantas.*
+
+describe "Test de plantas"{
+	
+	const menta1 = new Menta(anioDeObtencion = new Date(6,3,2006), altura = 1)	
+	const menta2 = new Menta(anioDeObtencion = new Date(12,5,2008), altura = 0.3)	
+	//const menta3 = new Menta(anioDeObtencion = new Date(10,4,2005), altura = 0.7)	
+	
+	
+	
+	test "Una menta de 1 metro da semillas" {
+
+		assert.that(menta1.daSemillas())
+	}	
+
+
+	test "Una menta de 1 metro ocupa 3 metros cuadrados" {
+
+		assert.equals(3,menta1.espacioQueOcupa())
+	}	
+
+	test "Una menta de 0.3 metros NO da semillas" {
+
+		assert.notThat(menta2.daSemillas())
+	}	
+	
+	
+	test "Una menta de 0.3 metres ocupa 0.9 metros cuadrados" {
+
+		assert.equals(0.9,menta2.espacioQueOcupa())
+	}	
+
+
+}
+
