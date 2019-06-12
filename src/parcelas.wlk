@@ -23,5 +23,10 @@ class Parcela{
 			plantas.add(planta)
 		}
 	}
-
+	
+	method esEcologica(planta) = not self.tieneComplicaciones() && planta.parcelaIdeal(self) 
+	
+	method esIndustrial(planta) = plantas.size() <= 2 && planta.esFuerte() 
+	
 }
+

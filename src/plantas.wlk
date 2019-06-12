@@ -10,6 +10,7 @@ class Planta {
 	
 	method espacioQueOcupa()= 0 // inicializado para ser sobreescrito por cada especie	
 	
+	method estaBienAsociada(parcela) = parcela.esEcologica(self) || parcela.esIndustrial(self) 
 }
 
 class Menta inherits Planta{
