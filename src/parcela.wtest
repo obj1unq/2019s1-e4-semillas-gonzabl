@@ -1,0 +1,41 @@
+import plantas.*
+import parcelas.*
+
+describe "Test de parcelas"{
+	
+	const soja2 = new Soja (anioDeObtencion = new Date(21,07,2008), altura = 1.2)
+	
+	const parcela1 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 8, plantas = [soja2,soja2,soja2,soja2])
+	const parcela2 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 10, plantas = [soja2,soja2,soja2])
+	const parcela3 = new Parcela(ancho = 20, largo = 1, hsDeSolRecibidas = 7, plantas = [soja2,soja2,soja2])
+
+test "parcela1 no tiene complicaciones con 4 plantas de soja de mas de 1 metro de alto" {
+	assert.notThat(parcela1.tieneComplicaciones())
+}	
+
+test "parcela2 tiene complicaciones con 3 plantas de soja porque no tolera las hs de sol que recibe la parcela" {
+	assert.that(parcela2.tieneComplicaciones())
+}	
+
+test "parcela1 tolera 4 plantas" {
+	assert.equals(4,parcela1.cantidadMaximaDePlantas())
+}	
+	
+
+test "parcela1 no puede plantar mas de 4 plantas"{
+	
+	assert.throwsException({parcela1.plantar(soja2)})
+}
+	
+test "parcela2 no puede plantar mas de por que tiene complicaciones"{
+	
+	assert.throwsException({parcela2.plantar(soja2)})
+}
+
+test "parcela3 puede plantar otra planta"{
+	parcela3.plantar(soja2)
+	assert.equals([soja2,soja2,soja2,soja2],parcela3.plantas())
+}
+
+
+}
